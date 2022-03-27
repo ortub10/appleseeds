@@ -1,0 +1,120 @@
+body{
+    background-color: rgb(107, 114, 161);
+    
+}  
+div{
+    text-align: center;
+    margin:25px;
+} 
+h1{
+    text-align: center;
+    color: white;
+} 
+
+button{
+  margin: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.reg{
+  padding: 10px;
+  width: 130px;
+} 
+.cl{
+  padding: 4px; ; 
+  width: 70px;
+}
+.sub{
+    padding: 2px;
+    width: 60px;
+}
+
+#reg1:hover{
+  background-color: rgb(76, 150, 76);
+}
+#reg2:hover{
+  background-color:rgb(211, 159, 63); 
+}
+#reg3:hover{
+  background-color: rgb(68, 170, 68);  
+}
+#reg4:hover{
+  background-color: orange  
+}
+
+#cl1:hover{
+    background-color: rgb(204, 75, 75);
+}
+#cl2:hover{
+    background-color:rgb(141, 141, 66);
+}
+#cl3:hover{
+    background-color:  red;
+}
+#cl4:hover{
+  background-color:  yellow;
+}
+
+#sub1:hover{
+    background-color: rgb(77, 135, 149);
+}
+#sub2:hover{
+    background-color: rgb(167, 159, 159)
+}
+#sub3:hover{
+  background-color:  rgb(56, 142, 163);
+}
+#sub4:hover{
+  background-color:  gray;
+}
+
+
+.flat_ghost button{
+  background-color:transparent
+}
+.round button{
+    border-radius: 20px;
+}
+.round_ghost button{
+  border-radius: 20px;
+  background-color:transparent   
+}
+
+#reg1{
+    background-color: rgb(68, 170, 68);    
+}
+#reg2{
+    background-color:orange;    
+}
+#reg3{
+   border: solid 2px  rgb(68, 170, 68);    
+}
+#reg4{
+  border: solid 2px orange;    
+}
+#cl1{
+    background-color: red;
+}
+#cl2{
+    background-color:rgb(175, 175, 68);
+}
+#cl3{
+    border: solid 2px red;
+}
+#cl4{
+  border: solid 2px yellow;
+}
+
+#sub1{
+    background-color: rgb(56, 142, 163);
+}
+#sub2{
+    background-color: gray
+}
+#sub3{
+  border: solid 2px rgb(56, 142, 163);
+}
+#sub4{
+  border: solid 2px gray;
+}

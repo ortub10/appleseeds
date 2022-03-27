@@ -1,0 +1,63 @@
+
+#headers{
+    color:green;
+}
+
+#general{
+    background-color: rgb(126, 61, 61);
+    height: 4000px;
+}
+.words{
+    color: white;
+    font-family: 'Antonio', sans-serif;
+}
+
+.card {
+    box-shadow: 2px 4px 0 rgba(0,0,0,0.2);
+    width: 15%;
+    background-color: white;
+    float: left;
+    margin-left: 40px;
+  }
+  
+#container {
+      padding: 1px 8px;
+  }
+
+#img{
+    width: 100%;
+  }
+
+  #aboutme{
+      float: left;
+  }
+
+  #navbar{
+    position: sticky;
+    top: 0;
+  }
+  #navbar ul{
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      width: 200px;
+      background-color: rgb(22, 22, 129);
+      
+     
+    }
+   #navbar ul li{
+       font-size: 18px;
+       line-height: 2.4em;
+       display: inline-block;
+       
+   } 
+   #navbar ul li button{
+       background-color: transparent;
+       color: white;
+       padding: 10px;
+       border: none;
+   }
+   #navbar ul li button:hover{
+    text-decoration: underline;
+    background-color: rgb(95, 95, 218);
+}

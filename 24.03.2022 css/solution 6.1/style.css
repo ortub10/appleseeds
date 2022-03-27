@@ -1,0 +1,15 @@
+#first{
+    border: 1px  solid red;
+    border-radius: 8px;
+}
+
+#second{
+    font-style: italic;
+    font-weight: bold;
+}
+
+#third{
+    background-color: black;
+    color: white;
+    font-family: monospace;
+}

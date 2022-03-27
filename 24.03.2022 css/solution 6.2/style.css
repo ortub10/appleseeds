@@ -1,0 +1,13 @@
+#card {
+    box-shadow: 2px 4px 0 rgba(0,0,0,0.2);
+    width: 15%;
+  }
+
+  
+  #container {
+    padding: 1px 8px;
+  }
+
+  #img{
+      width: 100%;
+  }
