@@ -1,0 +1,24 @@
+.container{
+    background-color: rgb(136, 136, 113);
+    width: 600px;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+}
+#box1{
+    background-color: green;
+}
+
+#box2{
+    background-color:blue;
+}
+
+#box3{
+    background-color: red;
+}

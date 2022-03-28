@@ -1,0 +1,13 @@
+.navbar{
+    background-color: rgb(184, 181, 181);
+    flex-direction: column;
+    
+}
+
+.navbar ul{
+    flex-direction: column;
+    padding: 10px 0px;   
+}
+.navbar ul li{
+    padding:10px 0px;
+}

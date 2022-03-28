@@ -1,0 +1,25 @@
+.container{
+    background-color: rgb(136, 136, 113);
+    width: 600px;
+    height: 400px;
+    display: flex;
+    margin: auto;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+}
+#box1{
+    background-color: green;
+}
+
+#box2{
+    background-color:blue;
+}
+
+#box3{
+    background-color: red;
+}
