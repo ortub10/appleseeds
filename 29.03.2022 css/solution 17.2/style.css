@@ -1,0 +1,14 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    position: relative;
+
+}
+ .box:before{
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: brown; 
+} 

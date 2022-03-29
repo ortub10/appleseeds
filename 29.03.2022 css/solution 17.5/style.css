@@ -1,0 +1,18 @@
+a{
+    text-decoration: none;
+    position: relative;
+}
+a::after{
+    content: 'this is dolor';
+    position: absolute;
+    visibility: hidden;
+    width: 300%;
+    background-color: yellow;
+    text-align: center;
+    border-radius: 20px;
+    bottom: 100%;
+    left: 50%;
+}
+a:hover::after{
+    visibility: visible;
+}
