@@ -1,0 +1,28 @@
+body{
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    position: relative;
+}
+.box::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 100%;
+    background-color: red;
+    transition-property:background,right ;
+    transition-duration:1S ;
+    transition-timing-function:ease-in ;
+}
+.box:hover::before{
+    background-color: yellow;
+    right: 0;
+}
