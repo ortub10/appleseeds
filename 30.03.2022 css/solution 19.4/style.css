@@ -37,10 +37,6 @@ li::after{
     transform: translateX(-101%)   
 } 
 
- li:hover::after{
+ li:hover::after,li:hover::before{
     transform: translate(0%);
 } 
-
-li:hover::before{
-    transform: translate(0%);
-}
