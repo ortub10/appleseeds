@@ -1,0 +1,101 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+}
+button{
+    padding: 20px;
+    margin: 10px;
+    background-color: transparent;
+    border: 2px solid;
+    position: relative;
+    overflow: hidden;
+}
+
+#translateY::after{
+    transition: all;
+    transition-duration: 0.5s;
+    position: absolute;
+    bottom:100%;
+    right: 0%;    
+    content: 'YEAH!';
+    padding: 18px 0;
+    width: 100%;
+    height: 35%;
+}
+
+#translateY:hover::after{
+    background-color: red;
+    transform: translateY(100%);   
+}
+
+#translate::after{
+    transition: all;
+    transition-duration: 1s;
+    position: absolute;
+    bottom:0;
+    right: 100%;    
+    content: '';
+    padding: 18px 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;    
+} 
+
+#translate{    
+    transition-property: color;
+    transition-duration: 1s;
+}
+
+#translate:hover{ 
+    border: 2px solid black;
+    color: white;
+}  
+
+#translate:hover::after{
+    background-color:gray;
+    transform: translateX(100%);   
+} 
+#roatae::after{
+    transition: all;
+    transition-duration: 1s;
+    position: absolute;
+    bottom:140%;
+    right: 50%;    
+    content: '';
+    padding: 18px 0;
+    width: 100%;
+    height: 80%;
+    z-index: -1;
+}
+#roatae:hover::after{
+    background-color: yellow;
+    bottom: -10px;
+    right: 0;   
+    transform: rotate(90deg);
+}
+#scale::after{
+    transition: all;
+    transition-duration: 1s;
+    content: 'Scale & Opacity';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height:50%;
+    width: 100%;
+    padding-top:20px;
+    padding-bottom: 8px;
+    color: #fff;
+    background-color: rgb(0, 0, 0);
+    transform: scale(2, 2);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+#scale:hover::after{
+    background-color: black;
+    transform: scale(1, 1);
+    opacity: 1;
+}
