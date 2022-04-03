@@ -1,0 +1,11 @@
+.grid{
+    margin: auto;
+    display: grid;
+    grid-template-areas:
+    'header'
+    'sidebar'
+    'content'
+    'sidebar2'
+    'footer';
+    grid-gap:20px;
+}

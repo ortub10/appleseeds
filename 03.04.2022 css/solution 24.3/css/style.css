@@ -1,0 +1,40 @@
+.grid{
+    width: 35%; 
+    margin: auto;
+    display: grid;
+    grid-template-areas:
+    'header header header header'
+    'sidebar content content sidebar2'
+    'footer footer footer footer';
+    grid-gap:20px;
+}
+
+.item{
+    border-radius:20px;
+    color: white;
+    padding: 20px 20px;
+    font-size: 20px;
+}
+.header{
+    grid-area: header;
+    background-color: red;
+}
+.sidebar{
+    grid-area: sidebar;
+    
+    background-color: blue;
+}
+.content{
+    grid-area: content;
+    background-color: green;
+}
+.sidebar2{
+    grid-area: sidebar2;
+    background-color: purple;
+    
+}
+.footer{
+    grid-area: footer;
+    background-color: yellow;
+}
+
