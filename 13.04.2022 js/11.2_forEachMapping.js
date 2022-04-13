@@ -53,11 +53,20 @@ console.log(capitalize('hello'));
 
 //6
 const shiftLetters = string =>{
+    if(!(/^[a-zA-Z -]+$/.test(string)))
+    return 'Valid input';
     const chars =  string.split("")
-    const charsShift =  chars.map(char=>(String.fromCharCode((char.charCodeAt(0))-1)))
+    const charsShift =  chars.map(char=>{
+        let minusOneLetter = String.fromCharCode((char.charCodeAt(0))-1);
+        if(char ==='a') minusOneLetter ='z';
+        if(char ==='A') minusOneLetter ='Z';
+        if(char ===' ') minusOneLetter =' ';
+        if(char ==='-') minusOneLetter ='-';
+        return minusOneLetter;
+    })
     return charsShift.join(""); 
 }
-console.log(shiftLetters('hello'));
+console.log(shiftLetters('Hello to all of-you'));
 
 //7
 const swapCase = string =>{
@@ -66,3 +75,4 @@ const swapCase = string =>{
     return charsSwap.join(" "); 
 }
 console.log(swapCase('the big bang'));
+
