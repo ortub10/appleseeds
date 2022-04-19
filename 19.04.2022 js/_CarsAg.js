@@ -587,6 +587,7 @@ const carMarket = {
     {
       name: 'Will Reyes',
       id: 'FQvNsEwLZ',
+      
       cars: [
         { name: 'X6', year: 2020, price: 966500, ownerId: 'FQvNsEwLZ' },
         {
@@ -631,17 +632,17 @@ const carMarket = {
 carMarket.getAgencyByName = function(carMarket,name){
   return carMarket.sellers.find(agency => agency.agencyName === name);
 }
-// console.log(carMarket.getAgencyByName("Best Deal"));
+// console.log(carMarket.getAgencyByName(carMarket,"Best Deal"));
 
 //* getAgencyIdByName
 //? @param {String} - name
 //? @return {String} - agencyId
 carMarket.getAgencyIdByName = function(carMarket,name){
-  const agency = carMarket.getAgencyByName(name);
-  return agency?agency.agencyId:agency;;
+  const agency = carMarket.getAgencyByName(carMarket,name);
+  return agency?agency.agencyId:agency;
 }
 
-// console.log(carMarket.getAgencyIdByName("Best Deal"));
+// console.log(carMarket.getAgencyIdByName(carMarket,"Best Deal"));
 
 //* getAllAgenciesName
 //? @param {}
@@ -671,6 +672,7 @@ return carMarket.sellers.reduce((acc,agency) => {
 //? @return {object[]} - carsArray - arrays of all models objects of specific agency
 carMarket.getAllCarToBuyByAgencyId = function(carMarket,id){
   const agencyObj = carMarket.sellers.find(agency=>agency.agencyId === id);
+  if(!agencyObj) return 'Wrong id'
   return agencyObj.cars.reduce((acc,car)=>{
     car.models.forEach(model =>{
       acc.push(model)}
@@ -679,13 +681,14 @@ carMarket.getAllCarToBuyByAgencyId = function(carMarket,id){
   },[]);
 }
 
-// console.log(carMarket.getAllCarToBuyByAgencyId(carMarket,'Plyq5M5AZ'));
+// console.log(carMarket.getAllCarToBuyByAgencyId(carMarket,'Plyq5M5sAZ'));
 
 //* getAllBrandsToBuyAgencyId
 //? @param {string} - agencyId -  id of agency
 // ? @return {string[]} - arrOfBrands - arrays of all brands name in specific agency
 carMarket.getAllBrandsToBuyAgencyId = function(carMarket,id){
   const agencyObj = carMarket.sellers.find(agency=>agency.agencyId === id);
+  if(!agencyObj) return 'Wrong id'
   return agencyObj.cars.reduce((acc,car)=>{
     acc.push(car.brand);
     return acc;
@@ -693,7 +696,7 @@ carMarket.getAllBrandsToBuyAgencyId = function(carMarket,id){
   ,[]);
 }
 
-// console.log(carMarket.getAllBrandsToBuyAgencyId(carMarket,'Plyq5M5AZ'));
+// console.log(carMarket.getAllBrandsToBuyAgencyId(carMarket,'Plyeq5M5AZ'));
 
 //! customer func's
 //todo getters
@@ -701,30 +704,88 @@ carMarket.getAllBrandsToBuyAgencyId = function(carMarket,id){
 //* getCustomerByName
 //? @param {string} - name
 //? @return {Object} - customer
+carMarket.getCustomerByName = function(carMarket,name){
+  return carMarket.customers.find(customer => customer.name === name);
+}
+
+// console.log(carMarket.getCustomerByName(carMarket,"Ravi Murillo"));
 
 //* getCustomerIdByName
 //? @param {name}
 //? @return {String} - customerId - The customer id
+carMarket.getCustomerIdByName = function(carMarket,name){
+  // return carMarket.getCustomerByName(carMarket,name).id;
+  const customer = carMarket.getCustomerByName(carMarket,name);
+  return customer?customer.id:customer;
+
+}
+
+// console.log(carMarket.getCustomerIdByName(carMarket,"Ravi Murillo"));
 
 //* getAllCustomersNames
 //? @param {}
 //? @return {string[]} - customersNameArr -  Array of all customers name
+carMarket.getAllCustomersNames = function(carMarket){
+  return carMarket.customers.map(customer =>(customer.name))
+}
+// console.log(carMarket.getAllCustomersNames(carMarket));
+
 
 //* getAllCustomerCars
 //? @param {id} - costumerId - costumer id
 //? @return {object[]} - customerCarsArr -  Array of all customer cars object
 
+carMarket.getAllCustomerCars = function(carMarket,id){
+  const customerObj = carMarket.customers.find(customer => customer.id === id);
+  if(!customerObj) return 'Wrong id'
+  return customerObj?customerObj.cars:customerObj;
+}
+// console.log(carMarket.getAllCustomerCars(carMarket,'FQvNsEwLZ'));
+
 //* getCustomerCash
 //? @param {id} - costumerId - costumer id
 //? @return {number} - CustomerCash
-
-
-
+carMarket.getCustomerCash = function(carMarket,id){
+  const customerObj = carMarket.customers.find(customer => customer.id === id);
+  if(!customerObj) return 'Wrong id'
+  return customerObj?customerObj.cash:customerObj;
+}
+// console.log(carMarket.getCustomerCash(carMarket,'FQvNsEwLZ'));
 //!------------------------------------------------------------
 //*  1) setPropertyBrandToAllCars
 //? set all cars model object the current brand
 //? @param {}
 //? @return {}
+carMarket.setPropertyBrandToAllCars = function(carMarket){
+
+  carMarket.sellers.forEach(agency =>{
+    agency.cars.forEach(car =>{
+      car.models.forEach(module => {
+        module["brand"] = car.brand;
+      })
+    })
+  })
+  carMarket.customers.forEach(customer =>{
+    customer.cars.forEach(carCustomer =>{
+      carMarket.sellers.forEach(agency=>{
+        const car =  agency.cars.find(carAgency =>{
+          let isModel = false;
+          carAgency.models.forEach(module=>{
+            if(module.name === carCustomer.name)
+              isModel = true;
+          })
+          return isModel;
+        })
+        // console.log(car);
+        if(car) carCustomer['brand'] = car.brand;
+        
+      })
+    })
+  });
+}
+// console.log(carMarket.customers[2]);
+// carMarket.setPropertyBrandToAllCars(carMarket);
+// console.log(carMarket.customers[2]);
 
 //todo Agency setters
 
@@ -732,26 +793,91 @@ carMarket.getAllBrandsToBuyAgencyId = function(carMarket,id){
 //? @param {string} - id of agency
 //? @param {object} - carObject
 //? @return {}
+carMarket.setNewCarToAgency = function(carMarket,id,newCar){
+  const agencyObj = carMarket.sellers.find(agency => agency.agencyId === id)
+  if(!agencyObj) return 'Wrong id';
+  agencyObj.cars[agencyObj.cars.length] = newCar;
+}
+
+// console.log(carMarket.sellers[0]);
+// carNew = {
+//   brand:'dacia',
+//   models:[
+//     {
+//   name:89,
+//   year: 2001,
+//   price: 23265,
+//   carNumber:'FR63',
+//   ownerId:'Plyq5M5AZ'
+//     }
+//   ]
+// }
+// carMarket.setNewCarToAgency(carMarket,"Plyq5M5AZ",carNew);
+// console.log(carMarket.sellers[0]);
 
 //* deleteCarFromAgency
 //? @param {string} - id of agency
 //? @param {string} -  Car id
 // ? @return {}
+carMarket.deleteCarFromAgency = function(carMarket,idAgency, carNum){
+  const agencyObj = carMarket.sellers.find(agency =>agency.agencyId ===idAgency);
+  if(!agencyObj) return 'Wrong id';
+  agencyObj.cars.forEach((car)=>{
+    car.models.forEach((model,index)=>{
+      if(model.carNumber === carNum) car.models.splice(index,1);
+    })
+ 
+  });
+}
+// console.log(carMarket.sellers[0].cars[0]);
+// carMarket.deleteCarFromAgency(carMarket,'Plyq5M5AZ','AZJZ4');
+// console.log(carMarket.sellers[0].cars[0]);
 
 //* decrementOrIncrementCashOfAgency
 //? @param {string} - agencyId
 //? @param {number} - amount - negative or positive amount
 // ? @return {number} - agencyCash
+carMarket.decrementOrIncrementCashOfAgency = function(carMarket,id,amount){
+  const agencyObj = carMarket.sellers.find(agency =>agency.agencyId ===id);
+  if(!agencyObj) return 'Wrong id';
+  agencyObj.cash+=amount;
+  return agencyObj.cash;
+}
+// console.log(carMarket.sellers[0]);
+// console.log(carMarket.decrementOrIncrementCashOfAgency(carMarket,'Plyq5M5AZ',15));
+// console.log(carMarket.sellers[0]);
 
 //* decrementOrIncrementCreditOfAgency
 //? @param {string} - agencyId
 //? @param {number} - amount - negative or positive amount
 // ? @return {number} - agencyCash
+carMarket.decrementOrIncrementCreditOfAgency = function(carMarket,id,amount){
+  const agencyObj = carMarket.sellers.find(agency =>agency.agencyId ===id);
+  if(!agencyObj) return 'Wrong id';
+  agencyObj.credit+=amount;
+  return agencyObj.credit;
+}
+
+// console.log(carMarket.sellers[0]);
+// console.log(carMarket.decrementOrIncrementCreditOfAgency(carMarket,'Plyq5M5AZ',15));
+// console.log(carMarket.sellers[0]);
+
 
 //* setAmountOfCarsToBuyToAllAgency's
 //? set a new property amountOfCars to all agency's, that represent the amount of cars available in the agency.
 //? @param {}
 // ? @return {objects[]} - sellers - array of all agency's
+carMarket.setAmountOfCarsToBuyToAllAgencys = function(carMarket){
+  carMarket.sellers.forEach(agency=>{
+    let count = 0;
+    agency.cars.forEach(car=>{
+      count+=car.models.length;
+    })
+    agency['amountOfCars'] = count;
+  })
+  return carMarket.sellers;
+}
+// console.log(carMarket.setAmountOfCarsToBuyToAllAgencys(carMarket));
 
 //todo setters
 
@@ -759,16 +885,51 @@ carMarket.getAllBrandsToBuyAgencyId = function(carMarket,id){
 //? @param {string} - costumerId
 //? @param {object} - carObject
 //? @return {object[]} - allCarsOfCostumer
-//* deleteCarOfCostumer
+carMarket.setCarToCostumer = function(carMarket,costumerId,carObject){
+  const costumer = carMarket.customers.find(cost =>cost.id === costumerId);
+  if(!costumer) return 'wrong id';
+  costumer.cars.push(carObject);
+  return costumer.cars;
+}
 
+const newCar =   {
+     name:89,
+     year: 2001,
+     price: 23265,
+     carNumber:'FR63',
+     ownerId:'BGzHhjnE8'
+       }
+// console.log(carMarket.setCarToCostumer(carMarket,'BGzHhjnE8',newCar));
+
+//* deleteCarOfCostumer
 //? @param {string} - costumerId
 //? @param {string} - carId
 //? @return {object[]} - allCarsOfCostumer
+
+carMarket.deleteCarOfCostumer = function(carMarket,costumerId,carNum){
+  const costumer = carMarket.customers.find(cost =>cost.id === costumerId);
+  if(!costumer) return 'wrong id';
+  costumer.cars.forEach((car,index)=>{
+    if(car.carNumber === carNum) costumer.cars.splice(index,1);
+  });
+  return costumer.cars;
+}
+
+// console.log(carMarket.deleteCarOfCostumer(carMarket,'2RprZ1dbL','RLS4q'));
 
 //* decrementOrIncrementCashOfCostumer
 //? @param {string} - costumerId
 //? @param {number} - amount - negative or positive amount
 // ? @return {number} - costumerCash
+carMarket.decrementOrIncrementCashOfCostumer = function(carMarket,costumerId,amount){
+  const costumer = carMarket.customers.find(cost =>cost.id === costumerId);
+  if(!costumer) return 'wrong id';
+  costumer.cash+=amount;
+  return costumer.cash;
+}
+// console.log(carMarket.customers[0]);
+// console.log(carMarket.decrementOrIncrementCashOfCostumer(carMarket,'BGzHhjnE8',-15));
+// console.log(carMarket.customers[0]);
 
 //! -------------------------------------------------------
 //* 2) sortAndFilterByYearOfProduction
@@ -801,6 +962,7 @@ carMarket.getAllBrandsToBuyAgencyId = function(carMarket,id){
 //?   @param {string} - customerId
 //?   @param {string} - carModel
 //?   @return {object} - The object of the car purchased by the customer or an explanation message
+
 // *     - 5a. Subtract the vehicle amount + 17% (tax) from the customer's cash.
 // *     - 5b. Add the vehicle value to the car agency cash.
 // *     - 5c. Change the car owner's id to the customer's id.
