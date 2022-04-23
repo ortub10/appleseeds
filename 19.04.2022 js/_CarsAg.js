@@ -651,7 +651,7 @@ carMarket.getAgencyIdByName = function(carMarket,name){
 carMarket.getAllAgenciesName = function(carMarket){
   return carMarket.sellers.map(agency => agency.agencyName);
 }
-// console.log(carMarket.getAllAgenciesName());
+// console.log(carMarket.getAllAgenciesName(carMarket));
 
 //* getAllCarToBuy
 //? @param {}
@@ -659,13 +659,15 @@ carMarket.getAllAgenciesName = function(carMarket){
 carMarket. getAllCarToBuy = function(carMarket){
 return carMarket.sellers.reduce((acc,agency) => {
     agency.cars.forEach(element => {
-      acc.push(element);
+      element.models.forEach(model =>{
+        acc.push(model);
+      });
     });
     return acc;
   },[])
 }
 
-// console.log(carMarket.getAllCarToBuy());
+// console.log(carMarket.getAllCarToBuy(carMarket));
 
 //* getAllCarToBuyByAgencyId
 //? @param {string} - id of agency
@@ -939,6 +941,27 @@ carMarket.decrementOrIncrementCashOfCostumer = function(carMarket,costumerId,amo
 //?   @param {number} - toYear - Will display vehicles up to this year
 //?   @param {boolean} - isAscendingOrder - true for ascending order, false for descending order
 //?   @return {object[]} - arrayOfModels - array of sorted cars
+carMarket.sortAndFilterByYearOfProduction = function(arrOfCars,fromYear,toYear,isAscendingOrder){
+  let onlyYears = []
+  const betweenYears = arrOfCars.filter(car =>{
+    if(car.year>=fromYear && car.year <= toYear){
+      onlyYears.push(car.year);
+      return true;
+    }
+    return false;
+  });
+
+  const betweenYearsSort = [];
+  onlyYears = onlyYears.sort((a,b)=>(a-b));
+  onlyYears.forEach(element=>{
+    const objectByYearFind = betweenYears.find(car =>(car.year === element));
+    betweenYearsSort.push(objectByYearFind);
+  });
+  if(isAscendingOrder)
+    return betweenYearsSort;
+  return betweenYearsSort.reverse();
+}
+// console.log(carMarket.sortAndFilterByYearOfProduction(carMarket.getAllCarToBuy(carMarket),2004,2011,false));
 
 //* 3) sortAndFilterByPrice
 //?   filter and Sort in a Ascending or Descending order all vehicles for sale by price of the cars.
@@ -947,6 +970,27 @@ carMarket.decrementOrIncrementCashOfCostumer = function(carMarket,costumerId,amo
 //?   @param {number} - fromPrice - Will display vehicles up to this price
 //?   @param {boolean} - isAscendingOrder - true for ascending order, false for descending order
 //?   @return {object[]} - arrayOfModels - array of sorted cars
+carMarket.sortAndFilterByPrice = function(arrOfCars,fromPrice,toPrice,isAscendingOrder){
+  let onlyPrices = []
+  const betweenPrices = arrOfCars.filter(car =>{
+    if(car.price>=fromPrice && car.price <= toPrice){
+      onlyPrices.push(car.price);
+      return true;
+    }
+    return false;
+  });
+
+  const betweenPricesSort = [];
+  onlyPrices = onlyPrices.sort((a,b)=>(a-b));
+  onlyPrices.forEach(element=>{
+    const objectByPriceFind = betweenPrices.find(car =>(car.price === element));
+    betweenPricesSort.push(objectByPriceFind);
+  });
+  if(isAscendingOrder)
+    return betweenPricesSort;
+  return betweenPricesSort.reverse();
+}
+console.log(carMarket.sortAndFilterByPrice(carMarket.getAllCarToBuy(carMarket),20000,55000,false));
 
 //* 4 ) searchCar
 //?   @param {object[]} - arrOfCars - array of cars
@@ -954,8 +998,7 @@ carMarket.decrementOrIncrementCashOfCostumer = function(carMarket,costumerId,amo
 //?   @param {number} - toYear - Will display vehicles up to this year
 //?   @param {number} - fromPrice - Will display vehicles starting at this price
 //?   @param {number} - fromPrice - Will display vehicles up to this price
-//?   optional @param {string} - brand - Look only for cars of this brand
-
+//?   optional @param {string} - brand - Look only for cars of this bran
 //* 5 ) sellCar
 //?   Sell ​​a car to a specific customer
 //?   @param {string} - agencyId
