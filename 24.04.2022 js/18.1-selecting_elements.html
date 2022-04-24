@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+            <title>Document</title>
+        </head>
+        <body>
+            <h1>Header</h1>
+            <p>Paragraph</p>
+            <a href="#">link</a>
+            <img src="" alt="" />
+            <div class="x">Div with a class</div>
+            <div id="y">Div with an id</div>
+            <input type="text" />
+            <input type="text" />
+            <input type="text" />
+        </body>
+        <script>
+            //your js code here
+            const h1 = document.getElementsByTagName("h1")[0];
+            const p = document.getElementsByTagName("p")[0];
+            const img = document.getElementsByTagName("img")[0];
+            const divClass = document.getElementsByClassName("x")[0];
+            const divId = document.getElementById("y");
+            const input = document.getElementsByTagName("input");
+            console.log(h1);
+            console.log(p);
+            console.log(img);
+            console.log(divClass);
+            console.log(divId);
+            console.log(input);
+            [...input].forEach(element => {
+                console.log(element);
+            });
+            
+
+            const h1Query = document.querySelector("h1");
+            const pQuery = document.querySelector("p");
+            const imgQuery = document.querySelector("img");
+            const divClassQuery = document.querySelector("div.x");
+            const divIdQuery = document.querySelector("div#y");
+            const inputQuery = document.querySelectorAll("input") 
+            console.log(h1Query);
+            console.log(pQuery);
+            console.log(imgQuery);
+            console.log(divClassQuery);
+            console.log(divIdQuery);
+            console.log(inputQuery);
+            inputQuery.forEach(element => {
+                console.log(element);
+            });
+
+
+        </script>
+    </html>
