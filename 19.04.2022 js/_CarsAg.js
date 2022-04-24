@@ -637,9 +637,9 @@ carMarket.getAgencyByName = function(carMarket,name){
 //* getAgencyIdByName
 //? @param {String} - name
 //? @return {String} - agencyId
-carMarket.getAgencyIdByName = function(carMarket,name){
-  const agency = carMarket.getAgencyByName(carMarket,name);
-  return agency?agency.agencyId:agency;
+carMarket.getAgencyIdByName = function(carMarket, name){
+  const agency = carMarket.getAgencyByName(carMarket, name);
+  return agency ? agency.agencyId : agency;
 }
 
 // console.log(carMarket.getAgencyIdByName(carMarket,"Best Deal"));
@@ -658,8 +658,8 @@ carMarket.getAllAgenciesName = function(carMarket){
 //? @return {object[]} - allCarsToBuy - arrays of all cars objects
 carMarket. getAllCarToBuy = function(carMarket){
 return carMarket.sellers.reduce((acc,agency) => {
-    agency.cars.forEach(element => {
-      element.models.forEach(model =>{
+    agency.cars.forEach(brand => {
+      brand.models.forEach(model =>{
         acc.push(model);
       });
     });
