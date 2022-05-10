@@ -1,0 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+img {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  border-radius: 00.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+p {
+  margin: 1rem 0;
+}
+#contain {
+  text-align: center;
+  padding: 2rem;
+}
+
+#btn_search {
+  background-color: aqua;
+  border-color: transparent;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+#cards {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 20rem;
+  height: fit-content;
+  border-radius: 00.5rem;
+  text-align: center;
+  border: 1px solid;
+  margin: 0.5rem;
+  background-color: rgb(163, 191, 182);
+}
