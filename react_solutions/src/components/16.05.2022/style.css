@@ -1,0 +1,32 @@
+.contain {
+  border: 1px solid black;
+  width: 6rem;
+  height: 9rem;
+  padding: 1rem;
+}
+.contain7_3 {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+.show {
+  width: 5rem;
+  height: 6rem;
+  background-color: yellow;
+}
+
+.black {
+  color: black;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+button {
+  margin-bottom: 1rem;
+}
