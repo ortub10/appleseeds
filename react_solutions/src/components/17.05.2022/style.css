@@ -1,0 +1,109 @@
+#headerSpinner {
+  text-align: center;
+}
+.box {
+  background-color: red;
+  margin-bottom: 1rem;
+  animation: show-disappear 2s;
+}
+.box1 {
+  width: 15rem;
+  height: 10rem;
+}
+
+.box2 {
+  width: 20rem;
+  height: 15rem;
+}
+
+.box3 {
+  width: 10rem;
+  height: 5rem;
+}
+
+.mainBox {
+  width: 10rem;
+  height: 10rem;
+}
+.blue {
+  background-color: blue;
+}
+
+.green {
+  background-color: green;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.spinner2 {
+  border-bottom: 2px solid gray;
+  border-right: 2px solid gray;
+  border-left: 2px solid gray;
+}
+
+.spinner1 {
+  border-top: 2px solid aqua;
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+  margin: auto;
+  margin-top: 3rem;
+  animation: spinin 1s infinite linear;
+}
+
+.balles {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.ball {
+  height: 10px;
+  width: 10px;
+  background-color: gray;
+  border-radius: 50%;
+  margin: 5px;
+}
+.up {
+  background-color: aqua;
+}
+#up1 {
+  animation: jump 1s infinite linear;
+}
+#up2 {
+  animation: jump 1s infinite linear;
+  animation-delay: 0.3s;
+}
+#up3 {
+  animation: jump 1s infinite linear;
+  animation-delay: 0.6s;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes spinin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes show-disappear {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
