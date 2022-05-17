@@ -10,25 +10,33 @@ class Exercise7_3 extends React.Component {
     };
   }
 
-  checkSituation = (number) => {
-    if (this.state.counter > number) {
+  checkSituation = () => {
+    if (this.state.counter > 0) {
       this.setState({ currentClass: "green" });
-    } else if (this.state.counter < number) {
+    } else if (this.state.counter < 0) {
       this.setState({ currentClass: "red" });
     } else {
       this.setState({ currentClass: "black" });
     }
   };
   eventInc = () => {
-    this.checkSituation(-1);
     if (this.state.counter < 10)
-      this.setState({ counter: this.state.counter + 1 });
+      this.setState(
+        (prevState) => {
+          return { counter: this.state.counter + 1 };
+        },
+        () => this.checkSituation()
+      );
   };
 
   eventDec = () => {
-    this.checkSituation(1);
     if (this.state.counter > -10)
-      this.setState({ counter: this.state.counter - 1 });
+      this.setState(
+        (prevState) => {
+          return { counter: this.state.counter - 1 };
+        },
+        () => this.checkSituation()
+      );
   };
   render() {
     return (

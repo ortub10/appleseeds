@@ -9,7 +9,9 @@ class Exercise7_1 extends React.Component {
   }
 
   clickEvent = () => {
-    this.setState({ counter: this.state.counter + 1 });
+    this.setState((prevState) => {
+      return { counter: this.state.counter + 1 };
+    });
   };
   render() {
     return (
