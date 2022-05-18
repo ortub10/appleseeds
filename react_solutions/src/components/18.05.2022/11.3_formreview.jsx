@@ -21,6 +21,11 @@ class Exercise11_3 extends React.Component {
       alert("You must fill all the fields");
     }
   };
+
+  submitConfirm = (e) => {
+    e.preventDefault();
+    this.setState({ isDone: true });
+  };
   render() {
     if (!this.state.isfilled && !this.state.isDone) {
       return (
@@ -75,16 +80,16 @@ class Exercise11_3 extends React.Component {
     } else if (this.state.isfilled && !this.state.isDone) {
       return (
         <div>
-          <p>{this.state.firstName}</p>
-          <p>{this.state.lastName}</p>
-          <p>{this.state.age}</p>
-          <p>{this.state.textarea}</p>
-          <button onClick={() => this.setState({ isfilled: false })}>
-            Back
-          </button>
-          <button onClick={() => this.setState({ isDone: true })}>
-            Send Survey
-          </button>
+          <form onSubmit={this.submitConfirm}>
+            <p>{this.state.firstName}</p>
+            <p>{this.state.lastName}</p>
+            <p>{this.state.age}</p>
+            <p>{this.state.textarea}</p>
+            <button onClick={() => this.setState({ isfilled: false })}>
+              Back
+            </button>
+            <button>Send Survey</button>
+          </form>
         </div>
       );
     } else {
