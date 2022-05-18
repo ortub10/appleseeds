@@ -10,7 +10,7 @@ class Exercise8_3 extends React.Component {
   componentDidMount = () => {
     setTimeout(() => {
       this.setState((prevState) => {
-        return { color: "green", count: this.state.count + 1 };
+        return { color: "green", count: prevState.count + 1 };
       });
     }, 1000);
   };
@@ -19,11 +19,11 @@ class Exercise8_3 extends React.Component {
     setTimeout(() => {
       if (this.state.color === "blue") {
         this.setState((prevState) => {
-          return { color: "green", count: this.state.count + 1 };
+          return { color: "green", count: prevState.count + 1 };
         });
       } else if (this.state.color === "green") {
         this.setState((prevState) => {
-          return { color: "blue", count: this.state.count + 1 };
+          return { color: "blue", count: prevState.count + 1 };
         });
       }
     }, 1000);
