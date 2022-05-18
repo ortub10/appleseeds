@@ -1,0 +1,24 @@
+.contain11_1 {
+  display: flex;
+  flex-direction: column;
+}
+button {
+  margin-bottom: 0;
+}
+.red {
+  background-color: red;
+  color: white;
+  width: 3rem;
+}
+
+.blue {
+  background-color: blue;
+  color: white;
+  width: 4rem;
+}
+
+.yellow {
+  background-color: yellow;
+  width: 5rem;
+  color: black;
+}
