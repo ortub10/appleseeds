@@ -11,6 +11,9 @@ import Exercise9_1 from "./components/17.05.2022/9.1_spinner";
 import Exercise11_1 from "./components/18.05.2022/11.1_child_to_father_colors";
 import Exercise11_2 from "./components/18.05.2022/11.2_checkbox";
 import Exercise11_3 from "./components/18.05.2022/11.3_formreview";
+import Exercise12_1 from "./components/22.05.2022/12.1_chuck_norris";
+import Exercise13_1 from "./components/22.05.2022/13.1_react_data_massaging";
+
 function App() {
   return (
     <>
@@ -26,6 +29,8 @@ function App() {
       {/* <Exercise11_1 /> */}
       {/* <Exercise11_2 /> */}
       {/* <Exercise11_3 /> */}
+      {/* <Exercise12_1 /> */}
+      {/* <Exercise13_1 /> */}
     </>
   );
 }
