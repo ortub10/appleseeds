@@ -1,0 +1,19 @@
+#search {
+  padding: 1rem;
+  text-align: center;
+}
+
+.avatar {
+  border: 1px solid black;
+  width: fit-content;
+  text-align: center;
+}
+.avatar img {
+  width: 25rem;
+}
+
+.contain_images {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: auto auto auto;
+}
