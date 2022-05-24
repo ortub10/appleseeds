@@ -1,0 +1,15 @@
+.header_navbar ul {
+  display: flex;
+  list-style: none;
+  background-color: aliceblue;
+}
+.header_navbar ul li {
+  padding: 1rem;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
