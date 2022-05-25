@@ -17,6 +17,7 @@ import Exercise13_2 from "./components/22.05.2022/13.2_avatars";
 import Exercise14_1 from "./components/23.05.2022/14.1_focus";
 import Exercise14_2 from "./components/23.05.2022/14.2_copy";
 import Exercise16_1 from "./components/24.05.2022/16.1_products";
+import SimpleTodo from "./components/25.05.2022/simpleTodo";
 function App() {
   return (
     <>
@@ -38,6 +39,7 @@ function App() {
       {/* <Exercise14_1 /> */}
       {/* <Exercise14_2 /> */}
       {/* <Exercise16_1 /> */}
+      {/* <SimpleTodo /> */}
     </>
   );
 }
