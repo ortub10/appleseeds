@@ -1,0 +1,14 @@
+.hide_show {
+  border: none;
+  background-color: transparent;
+  color: blue;
+}
+
+.times {
+  display: flex;
+  flex-direction: column;
+}
+
+span {
+  cursor: pointer;
+}

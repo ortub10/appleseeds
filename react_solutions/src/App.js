@@ -18,6 +18,10 @@ import Exercise14_1 from "./components/23.05.2022/14.1_focus";
 import Exercise14_2 from "./components/23.05.2022/14.2_copy";
 import Exercise16_1 from "./components/24.05.2022/16.1_products";
 import SimpleTodo from "./components/25.05.2022/simpleTodo";
+import Exercise18_1 from "./components/29.05.2022/18.1_text";
+import Exercise18_2 from "./components/29.05.2022/18.2_simple_todo";
+import Exercise18_3 from "./components/29.05.2022/18.3_whats_the_time";
+import Exercise18_4 from "./components/29.05.2022/18.4_marking_and_deleting";
 function App() {
   return (
     <>
@@ -40,6 +44,10 @@ function App() {
       {/* <Exercise14_2 /> */}
       {/* <Exercise16_1 /> */}
       {/* <SimpleTodo /> */}
+      {/* <Exercise18_1 /> */}
+      {/* <Exercise18_2 /> */}
+      {/* <Exercise18_3 /> */}
+      {/* <Exercise18_4 /> */}
     </>
   );
 }
