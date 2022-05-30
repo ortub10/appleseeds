@@ -25,6 +25,7 @@ import Exercise18_4 from "./components/29.05.2022/18.4_marking_and_deleting";
 import Exercise19_1 from "./components/30.05.2022/19.1_simple_fetch";
 import Exercise19_2 from "./components/30.05.2022/19.2_countries_of_the_world";
 import Exercise19_3 from "./components/30.05.2022/19.3_algolia_api";
+import Exercise19_4 from "./components/30.05.2022/19.4_refactor_fetch_with_hooks";
 function App() {
   return (
     <>
@@ -54,6 +55,7 @@ function App() {
       {/* <Exercise19_1 /> */}
       {/* <Exercise19_2 /> */}
       {/* <Exercise19_3 /> */}
+      {/* <Exercise19_4 /> */}
     </>
   );
 }
