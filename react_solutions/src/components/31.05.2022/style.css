@@ -1,0 +1,10 @@
+img {
+  width: 40rem;
+  height: 40rem;
+}
+
+.contain_img {
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+}

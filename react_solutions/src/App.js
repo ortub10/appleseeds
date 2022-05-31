@@ -26,6 +26,10 @@ import Exercise19_1 from "./components/30.05.2022/19.1_simple_fetch";
 import Exercise19_2 from "./components/30.05.2022/19.2_countries_of_the_world";
 import Exercise19_3 from "./components/30.05.2022/19.3_algolia_api";
 import Exercise19_4 from "./components/30.05.2022/19.4_refactor_fetch_with_hooks";
+import Exercise20_1 from "./components/31.05.2022/20.1_cancel_request";
+import Exercise21_1 from "./components/31.05.2022/21.1_editing";
+import Exercise21_2 from "./components/31.05.2022/21.2_play_pause_video";
+import Exercise21_3 from "./components/31.05.2022/21.3_image_toggle";
 function App() {
   return (
     <>
@@ -56,6 +60,10 @@ function App() {
       {/* <Exercise19_2 /> */}
       {/* <Exercise19_3 /> */}
       {/* <Exercise19_4 /> */}
+      {/* <Exercise20_1 /> */}
+      {/* <Exercise21_1 /> */}
+      {/* <Exercise21_2 /> */}
+      {/* <Exercise21_3 /> */}
     </>
   );
 }
