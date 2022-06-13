@@ -1,0 +1,16 @@
+{
+  "name": "13.06.2022-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "7.1_api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "request": "^2.88.2",
+    "superagent": "^7.1.6"
+  }
+}
